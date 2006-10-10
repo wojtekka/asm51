@@ -27,7 +27,7 @@ parser.c:	parser.y
 lexer.c:	lexer.l
 	$(FLEX) -i -olexer.c lexer.l
 
-.PHONY:	install clean checkin strip tarball
+.PHONY:	install clean checkin strip dist
 
 strip:	$(NAME)
 	$(STRIP) $(NAME) || true
@@ -48,9 +48,10 @@ clean:
 checkin:	clean
 	ci -l -m. $(FILES)
 
-tarball:	clean
-	mkdir /tmp/asm51-$(VERSION)
+dist:	clean
+	mkdir -p /tmp/asm51-$(VERSION)/doc
 	cp $(FILES) /tmp/asm51-$(VERSION)
+	cp doc/asm51.sxw /tmp/asm51-$(VERSION)/doc
 	cd /tmp; tar zcvf $(PWD)/asm51-$(VERSION).tar.gz asm51-$(VERSION)
-	rm -rf /tmp/asm51-$(VERSION)
+#	rm -rf /tmp/asm51-$(VERSION)
 
