@@ -291,7 +291,7 @@ instr:	ACALL addr11		{ emit2(0x11 | (($<val>2 & 0x0700) >> 3), $<val>2 & 0x00ff)
      |	MOV C ',' direct	{ emit2(0xa2, $<val>4); $<val>$ = 2; }
      |	MOV C ',' bit		{ emit2(0xa2, $<val>4); $<val>$ = 2; }
      |	MOV direct ',' C	{ emit2(0x92, $<val>2); $<val>$ = 2; }
-     |	MOV bit ',' C	{ emit2(0x92, $<val>2); $<val>$ = 2; }
+     |	MOV bit ',' C		{ emit2(0x92, $<val>2); $<val>$ = 2; }
 
      |	MOV DPTR ',' '#' data16	{ emit3w(0x90, $<val>5); $<val>$ = 3; }
  

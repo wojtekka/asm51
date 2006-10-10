@@ -116,7 +116,9 @@ static void string_append(int ch)
 
 SYMBOL	[a-z_][a-z0-9_]*
 HEX	[0-9][0-9a-h]*h
+HEX2	0x[0-9a-h]+
 BIN	[01]+b
+BIN2	0b[01]+
 DEC	[0-9]+
 
 CHARS	[+*/&|.@,#-;]
@@ -150,8 +152,11 @@ CHARS	[+*/&|.@,#-;]
 ^$[a-z]+	if (pass == 1) warning(_("ignoring directive `%s'"), yytext);
 
 {BIN}		yylval.val = strtoul(yytext, NULL, 2); return VALUE;
+{BIN2}		yylval.val = strtoul(yytext + 2, NULL, 2); return VALUE;
 {DEC}		yylval.val = strtoul(yytext, NULL, 10); return VALUE;
 {HEX}		yylval.val = strtoul(yytext, NULL, 16); return VALUE;
+{HEX2}		yylval.val = strtoul(yytext + 2, NULL, 16); return VALUE;
+\'.\'		yylval.val = yytext[1]; return VALUE;
 
 {CHARS}		return yytext[0];
 
