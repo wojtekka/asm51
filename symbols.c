@@ -18,8 +18,9 @@
  */
 
 #include <string.h>
-#include "xmalloc.h"
+#include "main.h"
 #include "symbols.h"
+#include "xmalloc.h"
 
 /*
  * symbol_find()
@@ -141,3 +142,62 @@ void symbol_default()
 	symbol_new("CY", 0xd0+7, BIT, 1);
 }
 
+/*
+ * macro_find()
+ *
+ * szuka definicji makra o podanej nazwie.
+ */
+struct macro *macro_find(const char *name)
+{
+	struct macro *i;
+
+	for (i = macros; i; i = i->next)
+		if (!strcasecmp(i->name, name))
+			return i;
+
+	return NULL;
+}
+
+/*
+ * macro_new()
+ *
+ * dodaje nowe makro do listy.
+ */
+struct macro *macro_new(const char *name, const char *value)
+{
+	struct macro *m = xmalloc(sizeof(struct macro)), *last;
+
+	for (last = macros; last && last->next; last = last->next)
+		;
+
+	m->name = xstrdup(name);
+	m->value = xstrdup(value);
+
+	if (!last)
+		macros = m;
+	else
+		last->next = m;
+
+	if (verbosity)
+		printf("defining macro %s: %s\n", name, value);
+
+	return m;
+}
+
+/*
+ * macro_free()
+ *
+ * zwalnia informacje o makrach.
+ */
+void macro_free()
+{
+	struct macro *m;
+
+	for (m = macros; m; ) {
+		m = m->next;
+		xfree(m->name);
+		xfree(m->value);
+		xfree(m);
+	}
+}
+		

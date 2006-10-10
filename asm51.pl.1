@@ -1,0 +1,130 @@
+.\"
+.\"  asm51 0.1
+.\"  (C) Copyright 2003 Wojtek Kaniewski <wojtekka@irc.pl>
+.\"
+.TH ASM51 1 "Nov 2, 2003"
+
+.SH NAZWA
+asm51 \- asembler dla mikrokontrolerów rodziny 8051
+.SH SK£ADNIA
+.B asm51
+[
+.B \-vnVh
+] [
+.BI \-f
+.IR format
+] [
+.BI \-o
+.IR plik\_wyj¶ciowy
+]
+.IR plik\_wej¶ciowy
+.SH OPIS
+.I asm51
+jest dwuprzebiegowym asemblerem dla mikrokontrolerów rodziny 8051. Do jego
+cech nale¿±:
+.nf
+- kompatybilno¶æ z wiêkszo¶ci± DOS-owych asemblerów,
+- obs³uga dyrektyw takich jak EQU, ORG, DB, END, itd.
+- sk³adnia Intela,
+- pliki wyj¶ciowe w formacie binarnym lub Intel HEX.
+.fi
+.SH DYREKTYWY
+.TP
+.B etykieta EQU warto¶æ
+Definiuje sta³±
+.TP
+.B etykieta DATA warto¶æ
+Definiuje adres bajtu w wewnêtrznej pamiêci danych
+.TP
+.B etykieta BIT warto¶æ
+Definiuje adres bitu w wewnêtrznej pamiêci danych
+.TP
+.B ORG offset
+Zmienia offset kolejnej instrukcji lub danych
+.TP
+.B DB bajty, teksty
+Wstawia do pamiêci programu bajty lub teksty
+.TP
+.B DW s³owa
+Wstawia do pamiêci programu s³owa
+.TP
+.B DD dwords
+Wstawia do pamiêci programu podwójne s³owa
+.TP
+.B $MODxx
+Do³±cz plik
+.I MODxx
+gdzie xx oznacza model mikroprocesora
+.TP
+.B $INCLUDE nazwa\_pliku
+Do³±cz dowolny plik
+.TP
+.B END
+Koniec programu
+.SH WYRA¯ENIA
+Wyra¿enia mog± zawieraæ nastêpuj±ce dzia³ania
+.B + - / * & | << >>
+i mog± byæ grupowane za pomoc± nawiasów. Mog± zawieraæ etykiety i sta³e,
+poza dyrektywami typu 
+.I ORG
+gdzie warto¶ci musz± byæ znane w pierwszym przebiegu. Szesnastkowe i dwójkowe
+warto¶ci wymagaj± przyrostków
+.B h
+i
+.B b
+odpowiednio. Dodatkowo, wyra¿enia mog± zawieraæ nastêpuj±ce funkcje:
+.TP
+.B $
+Offset aktualnej instrukcji
+.TP
+.B HIGH(warto¶æ)
+Bardziej znacz±cy bajt s³owa
+.TP
+.B LOW(warto¶æ)
+Mniej znacz±cy bajt s³owa
+.SH OPCJE
+.TP
+.B \-n
+Nie definiuj domy¶lnych symboli 8051
+.TP
+.B \-v
+Zwiêksz gadatliwo¶æ
+.TP
+.B \-h
+Wy¶wietl informacje o pomocy
+.TP
+.B \-V
+Wy¶wietl wersjê
+.TP
+.B \-o "\ " plik\_wyj¶ciowy
+Podaje nazwê pliku wyj¶ciowego. Domy¶lnie, je¶li
+.B asm51
+znajdzie rozszerzenie
+.B .asm
+w nazwie pliku wej¶ciowego, zamienia je na rozszerzenie formatu wyj¶ciowego.
+W innym wypadku dodaje je na koñcu nazwy pliku wej¶ciowego.
+.TP
+.B \-f "\ " format\_wyj¶ciowy
+Wybiera format pliku wyj¶ciowego. Aktualnie obs³ugiwane s± formaty
+.B bin
+i
+.B hex
+(domy¶lnie wybierany jest
+.B hex
+).
+.SH KODY B£ÊDÓW
+.TP
+.B 1
+Nieprawid³owe parametry
+.TP
+.B 2
+B³±d otwierania pliku wej¶ciowego
+.TP
+.B 3
+B³±d kompilacji
+.SH ZNANE B£ÊDY
+.BR bison (1)
+wy¶wietla wiele b³êdów w parserze, ale dzia³a bez problemów.
+.SH AUTOR
+Wojtek Kaniewski (wojtekka@irc.pl)
+

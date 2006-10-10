@@ -43,4 +43,19 @@ void symbol_default();
 struct symbol *symbol_find(const char *name);
 struct symbol *symbol_new(const char *name, int type, int value, int defined);
 
+
+struct macro
+{
+	char *name;		/* nazwa makra */
+	char *value;		/* tre¶æ makra */
+
+	struct macro *next;
+};
+
+struct macro *macros;
+
+struct macro *macro_find(const char *name);
+struct macro *macro_new(const char *name, const char *value);
+void macro_free();
+
 #endif /* __SYMBOLS_H */

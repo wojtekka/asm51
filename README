@@ -9,3 +9,7 @@
    - GNU Bison 1.35
    - flex 2.5.4
 
+   Changes:
+   - 0.2 (2003-12-04) - fixed CJNE, redefinition of constants is allowed
+   - 0.1 (2003-11-02) - initial release
+

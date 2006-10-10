@@ -158,7 +158,7 @@ line:	undef ':' ORG dexpr '\n'
 undef:	SYMBOL
      	{
 		if ($<sym>1->defined && pass == 1)
-			error(_("`%s' redefined"), $<sym>1->name);
+			warning(_("`%s' redefined"), $<sym>1->name);
 		$<sym>$ = $<sym>1;
 	}
      ;
@@ -211,7 +211,7 @@ instr:	ACALL addr11		{ emit2(0x11 | (($<val>2 & 0x0700) >> 3), $<val>2 & 0x00ff)
      |	CALL addr16		{ emit3w(0x12, $<val>2); $<val>$ = 3; }
 
      |	CJNE A ',' '#' data ',' rel3	{ emit3(0xb4, $<val>5, $<val>7); $<val>$ = 3; }
-     |	CJNE A ',' direct ',' rel3	{ emit3(0xb5, $<val>5, $<val>7); $<val>$ = 3; }
+     |	CJNE A ',' direct ',' rel3	{ emit3(0xb5, $<val>4, $<val>6); $<val>$ = 3; }
      |	CJNE '@' Ri ',' '#' data ',' rel3	{ emit3(0xb6 + $<val>3, $<val>6, $<val>8); $<val>$ = 3; }
      |	CJNE Rn ',' '#' data ',' rel3	{ emit3(0xb8 + $<val>2, $<val>5, $<val>7); $<val>$ = 3; }
 
