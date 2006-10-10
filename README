@@ -1,0 +1,11 @@
+
+   asm51-0.1
+   (C) Copyright 2003 Wojtek Kaniewski <wojtekka@irc.pl>
+   Released under the terms of GNU GPL version 2 license
+
+   Tested with:
+   - GNU Make 3.80
+   - gcc 3.2.1
+   - GNU Bison 1.35
+   - flex 2.5.4
+

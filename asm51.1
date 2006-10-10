@@ -1,0 +1,128 @@
+.\"
+.\"  asm51 0.1
+.\"  (C) Copyright 2003 Wojtek Kaniewski <wojtekka@irc.pl>
+.\"
+.TH ASM51 1 "Nov 2, 2003"
+.SH NAME
+asm51 \- an assembler for 8051 family CPUs
+.SH SYNOPSIS
+.B asm51
+[
+.B \-vnVh
+] [
+.BI \-f
+.IR format
+] [
+.BI \-o
+.IR output\_file
+]
+.IR input\_file
+.SH DESCRIPTION
+.I asm51
+is a two-pass assembler for 8051 family CPUs. It's features are:
+.nf
+- compatibility with most DOS assemblers,
+- support for directives like EQU, ORG, DB, END, etc.
+- Intel syntax,
+- binary or Intel HEX output.
+.fi
+.SH DIRECTIVES
+.TP
+.B label EQU value
+Defines constant
+.TP
+.B label DATA value
+Defines internal data memory byte address
+.TP
+.B label BIT value
+Defines internal data memory bit address
+.TP
+.B ORG offset
+Changes offset of next instruction or data
+.TP
+.B DB bytes, strings
+Inserts bytes or strings into program memory
+.TP
+.B DW words
+Inserts words into program memory
+.TP
+.B DD dwords
+Inserts double words into program memory
+.TP
+.B $MODxx
+Include file
+.I MODxx
+where xx is CPU model
+.TP
+.B $INCLUDE filename
+Include arbitrary file
+.TP
+.B END
+Ends program
+.SH EXPRESSIONS
+Expressions can contain following operations
+.B + - / * & | << >>
+and can be grouped with parentheses. They can contain labels and constants,
+except directives like 
+.I ORG
+where value has to be known on first pass. Hexadecimal and binary values need
+.B h
+and
+.B b
+suffix respectively. In addition, expressions can
+contain these functions:
+.TP
+.B $
+Offset of current instruction
+.TP
+.B HIGH(value)
+Higher byte of word
+.TP
+.B LOW(value)
+Lower byte of word
+.SH OPTIONS
+.TP
+.B \-n
+Don't include default 8051 symbols
+.TP
+.B \-v
+Increase verbosity
+.TP
+.B \-h
+Print help message
+.TP
+.B \-V
+Print version
+.TP
+.B \-o "\ " output\_filename
+Specify output filename. By default, if
+.B asm51
+finds
+.B .asm
+extension, it replaces it with output format extension. Otherwise, it appends
+it.
+.TP
+.B \-f "\ " output_format
+Select output format. Currently
+.B bin
+and
+.B hex
+are supported, and
+.B hex
+is the default one.
+.SH ERROR CODES
+.TP
+.B 1
+Invalid parameters
+.TP
+.B 2
+Error opening input file
+.TP
+.B 3
+Compilation error
+.SH BUGS
+.BR bison (1)
+shows a lot of errors in parser, but it works fine.
+.SH AUTHOR
+Wojtek Kaniewski (wojtekka@irc.pl)
+
