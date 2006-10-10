@@ -205,7 +205,7 @@ void emit_hex(const char *filename)
 				csum += emit_buf[i];
 			}
 
-			fprintf(f, "%.2X\r\n", 256 - csum);
+			fprintf(f, "%.2X\r\n", (256 - csum) % 256);
 
 			size -= chunk;
 		}
