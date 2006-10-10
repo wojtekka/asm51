@@ -80,7 +80,7 @@ static void include(const char *new)
 
 	yy_switch_to_buffer(yy_create_buffer(yyin, YY_BUF_SIZE));
 
-	BEGIN(INITIAL);
+	BEGIN(0);
 }
 
 /*
@@ -171,7 +171,7 @@ CHARS	[+*/&|.@,#-;]
 \"		{ string_init(); BEGIN(s); }
 
 <s>\"		{
-			BEGIN(INITIAL);
+			BEGIN(0);
 			yylval.str = string;
 			return STRING;
 		}
