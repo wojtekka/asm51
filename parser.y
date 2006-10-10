@@ -170,7 +170,7 @@ dir:	DB bytes		{ $<val>$ = $<val>2; }
    |	END			{ YYACCEPT; }
    ;
 
-bytes:	bytes ',' data		{ emit_byte($<val>3); $<val>$ = $<val>3 + 1; }
+bytes:	bytes ',' data		{ emit_byte($<val>3); $<val>$ = $<val>1 + 1; }
      |	bytes ',' STRING	{ emit_string($<str>3); $<val>$ = $<val>1 + strlen($<str>3); xfree($<str>3); }
      |	data			{ emit_byte($<val>1); $<val>$ = 1; }
      |	STRING			{ emit_string($<str>1); $<val>$ = strlen($<str>1); xfree($<str>1); }

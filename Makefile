@@ -7,7 +7,7 @@ datadir = $(prefix)/share/asm51
 
 CC = gcc
 NAME = asm51
-VERSION = 0.4
+VERSION = 0.5
 OBJS = main.o parser.o lexer.o xmalloc.o output.o symbols.o
 CFLAGS = -Wall -O2 -ggdb -DDATADIR=\"$(datadir)\"
 BISON = bison

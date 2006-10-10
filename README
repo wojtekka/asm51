@@ -1,6 +1,6 @@
 
-   asm51-0.4
-   (C) Copyright 2003 Wojtek Kaniewski <wojtekka@irc.pl>
+   asm51-0.5
+   (C) Copyright 2003-2004 Wojtek Kaniewski <wojtekka@irc.pl>
    Released under the terms of GNU GPL version 2 license
 
    Tested with:
@@ -10,6 +10,7 @@
    - flex 2.5.4
 
    Changes:
+   - 0.5 (2004-06-16) - fixed DB with strings
    - 0.4 (2004-01-20) - Intel-HEX checksum fixed
    - 0.3 (2003-12-09) - added support for character constants and C-style
                         hex and bin values (eg. 0xff, 0b11111111)
