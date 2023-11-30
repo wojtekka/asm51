@@ -44,18 +44,4 @@ struct symbol *symbol_find(const char *name);
 struct symbol *symbol_new(const char *name, int type, int value, int defined);
 
 
-struct macro
-{
-	char *name;		/* macro name */
-	char *value;		/* macro value */
-
-	struct macro *next;
-};
-
-extern struct macro *macros;
-
-struct macro *macro_find(const char *name);
-struct macro *macro_new(const char *name, const char *value);
-void macro_free(void);
-
 #endif /* __SYMBOLS_H */
