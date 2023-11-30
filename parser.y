@@ -1,5 +1,3 @@
-/* $Id$ */
-
 /*
  *  (C) Copyright 2003-2023 Wojtek Kaniewski <wojtekka@toxygen.net>
  *

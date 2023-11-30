@@ -1,5 +1,3 @@
-# $Id$
-
 prefix = $(DESTDIR)/usr/local
 bindir = $(prefix)/bin
 mandir = $(prefix)/share/man
