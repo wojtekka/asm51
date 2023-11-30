@@ -19,6 +19,7 @@ Tested with
 Changes
 -------
 
+* 0.7 (2023-11-30) - fixed compilation with recent toolchain
 * 0.6 (2006-10-10) - fixed compilation with flex 2.5.33 (Adrian Czerniak)
 * 0.5 (2004-06-16) - fixed DB with strings
 * 0.4 (2004-01-20) - Intel-HEX checksum fixed
@@ -29,7 +30,7 @@ Changes
 License
 -------
 
-(C) Copyright 2003-2006 Wojtek Kaniewski <wojtekka@toxygen.net>
+(C) Copyright 2003-2023 Wojtek Kaniewski <wojtekka@toxygen.net>
 
 Released under the terms of GNU GPL version 2 license
 

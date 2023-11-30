@@ -1,7 +1,7 @@
 /* $Id$ */
 
 /*
- *  (C) Copyright 2003 Wojtek Kaniewski <wojtekka@irc.pl>
+ *  (C) Copyright 2003-2023 Wojtek Kaniewski <wojtekka@toxygen.net>
  *
  *  This program is free software; you can redistribute it and/or modify
  *  it under the terms of the GNU General Public License Version 2 as
@@ -23,8 +23,8 @@
 #include <stdio.h>
 
 #define NAME "asm51"
-#define VERSION "0.1"
-#define COPYRIGHT "(C) Copyright 2003 Wojtek Kaniewski <wojtekka@irc.pl>"
+#define VERSION "0.7"
+#define COPYRIGHT "(C) Copyright 2003-2023 Wojtek Kaniewski <wojtekka@toxygen.net>"
 #define LICENSE "Released under the terms of the GNU GPL version 2 license"
 
 #define _(s) (s)
