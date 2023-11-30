@@ -29,6 +29,8 @@
 #include "symbols.h"
 
 int errors = 0, warnings = 0;
+int verbosity;
+char *filename;
 
 void yyerror(const char *s)
 {

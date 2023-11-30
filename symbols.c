@@ -22,6 +22,9 @@
 #include "symbols.h"
 #include "xmalloc.h"
 
+struct symbol *symbols;
+struct macro *macros;
+
 /*
  * symbol_find()
  *

@@ -37,7 +37,7 @@ struct symbol
 	struct symbol *next;
 };
 
-struct symbol *symbols;
+extern struct symbol *symbols;
 
 void symbol_default();
 struct symbol *symbol_find(const char *name);
@@ -52,7 +52,7 @@ struct macro
 	struct macro *next;
 };
 
-struct macro *macros;
+extern struct macro *macros;
 
 struct macro *macro_find(const char *name);
 struct macro *macro_new(const char *name, const char *value);

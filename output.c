@@ -30,6 +30,7 @@
 
 unsigned char emit_buf[65536], emit_used[8192];
 int emit_pc, emit_pc2;
+int pass;
 
 #define emit_used_set(i) do { emit_used[(i) >> 3] |= 1 << ((i) & 7); } while(0)
 #define emit_used_get(i) (emit_used[(i) >> 3] & (1 << ((i) & 7)))

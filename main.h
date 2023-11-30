@@ -29,16 +29,16 @@
 
 #define _(s) (s)
 
-FILE *yyin;
+extern FILE *yyin;
 int yylex();
 int yyparse();
 void yyerror(const char *s);
 void error(const char *format, ...);
 void warning(const char *format, ...);
-char *filename;
+extern char *filename;
 
-int lineno;
+extern int lineno;
 
-int verbosity;
+extern int verbosity;
 
 #endif /* __MAIN_H */
