@@ -13,8 +13,7 @@ It was written as a student project.
 Tested with
 -----------
 
-* GNU Make 3.80, gcc 3.2.1, GNU Bison 1.35, flex 2.5.5
-* GNU Make 3.81, gcc 4.1.2, GNU Bison 2.3, flex 2.5.33
+* GNU Make 4.4, gcc 13.1.1, GNU Bison 3.8.2, flex 2.6.4
 
 Changes
 -------
