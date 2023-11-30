@@ -40,7 +40,7 @@ int pass;
  *
  * inicjalizacja bufora wyj¶ciowego.
  */
-void emit_init()
+void emit_init(void)
 {
 	emit_pc = emit_pc2 = 0;
 

@@ -72,7 +72,7 @@ struct symbol *symbol_new(const char *name, int value, int type, int defined)
  *
  * dodaje domy¶lne symbole dla 8051.
  */
-void symbol_default()
+void symbol_default(void)
 {
 	symbol_new("P0", 0x80, DATA, 1);
 	symbol_new("SP", 0x81, DATA, 1);
@@ -192,7 +192,7 @@ struct macro *macro_new(const char *name, const char *value)
  *
  * zwalnia informacje o makrach.
  */
-void macro_free()
+void macro_free(void)
 {
 	struct macro *m;
 

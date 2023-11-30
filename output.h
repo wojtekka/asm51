@@ -23,7 +23,7 @@
 extern int pass;				/* numer przebiegu (1 lub 2) */
 
 extern int emit_pc;				/* tylko od odczytu */
-void emit_init();
+void emit_init(void);
 void emit_pc_inc(int count);
 void emit_pc_set(int offset);
 void emit_byte(unsigned char b);

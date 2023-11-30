@@ -30,8 +30,8 @@
 #define _(s) (s)
 
 extern FILE *yyin;
-int yylex();
-int yyparse();
+int yylex(void);
+int yyparse(void);
 void yyerror(const char *s);
 void error(const char *format, ...);
 void warning(const char *format, ...);

@@ -39,7 +39,7 @@ struct symbol
 
 extern struct symbol *symbols;
 
-void symbol_default();
+void symbol_default(void);
 struct symbol *symbol_find(const char *name);
 struct symbol *symbol_new(const char *name, int type, int value, int defined);
 
@@ -56,6 +56,6 @@ extern struct macro *macros;
 
 struct macro *macro_find(const char *name);
 struct macro *macro_new(const char *name, const char *value);
-void macro_free();
+void macro_free(void);
 
 #endif /* __SYMBOLS_H */
