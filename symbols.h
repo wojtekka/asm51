@@ -21,18 +21,18 @@
 #define __SYMBOLS_H
 
 enum {
-	CONST = 0,		/* sta³a liczbowa */
-	LABEL = 1,		/* etykieta */
-	BIT = 2,		/* adres bit w wewnêtrznej pamiêci danych */
-	DATA = 3		/* adres bajtu w wewnêtrznej pamiêci danych */
+	CONST = 0,		/* constant */
+	LABEL = 1,		/* label */
+	BIT = 2,		/* bit address in internal RAM */
+	DATA = 3		/* byte address in internal RAM */
 };
 
 struct symbol
 {
-	char *name;		/* nazwa symbolu */
-	int value;		/* warto¶æ */
-	int defined;		/* czy jest zdefiniowany? */
-	int type;		/* typ symbolu */
+	char *name;		/* symbol name */
+	int value;		/* symbol value */
+	int defined;		/* is the symbol defined? */
+	int type;		/* symbol type */
 
 	struct symbol *next;
 };
@@ -46,8 +46,8 @@ struct symbol *symbol_new(const char *name, int type, int value, int defined);
 
 struct macro
 {
-	char *name;		/* nazwa makra */
-	char *value;		/* tre¶æ makra */
+	char *name;		/* macro name */
+	char *value;		/* macro value */
 
 	struct macro *next;
 };

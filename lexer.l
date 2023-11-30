@@ -48,7 +48,7 @@ static int include_stack_ptr = 0;
 /*
  * include()
  *
- * do³±cza do aktualnie kompilowane ¼ród³a inne.
+ * includes other source file to currently compiled one.
  */
 static void include(const char *new)
 {
@@ -87,7 +87,7 @@ static void include(const char *new)
 /*
  * string_init()
  *
- * inicjuje nowy ci±g znaków.
+ * initializes new string.
  */
 static void string_init()
 {
@@ -98,7 +98,7 @@ static void string_init()
 /*
  * string_append()
  *
- * dodaje znak do zainicjowanego ci±gu znaków.
+ * appends a character to an initialized string.
  */
 static void string_append(int ch)
 {
@@ -163,11 +163,11 @@ CHARS	[+*/&|.@,#-;]
 
 "\n"		lineno++; return '\n';
 
-[ \t]+		/* ignoruj odstêpy miêdzy tokenami */
+[ \t]+		/* ignore whitespaces between tokens */
 
-"\r"		/* ignoruj dosowe zakoñczenia linii */
+"\r"		/* ignore DOS line endings */
 
-;.*$		/* ignoruj komentarze */
+;.*$		/* ignore comments */
 
 \"		{ string_init(); BEGIN(s); }
 

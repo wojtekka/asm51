@@ -20,9 +20,9 @@
 #ifndef __OUTPUT_H
 #define __OUTPUT_H
 
-extern int pass;				/* numer przebiegu (1 lub 2) */
+extern int pass;				/* pass number (1 lub 2) */
 
-extern int emit_pc;				/* tylko od odczytu */
+extern int emit_pc;				/* read-only */
 void emit_init(void);
 void emit_pc_inc(int count);
 void emit_pc_set(int offset);

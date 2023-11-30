@@ -28,7 +28,7 @@ struct macro *macros;
 /*
  * symbol_find()
  *
- * szuka definicji symbolu o podanej nazwie.
+ * looks for symbol definition with given name.
  */
 struct symbol *symbol_find(const char *name)
 {
@@ -44,7 +44,7 @@ struct symbol *symbol_find(const char *name)
 /*
  * symbol_new()
  *
- * dodaje nowy symbol do listy.
+ * adds a new symbol to the list.
  */
 struct symbol *symbol_new(const char *name, int value, int type, int defined)
 {
@@ -70,7 +70,7 @@ struct symbol *symbol_new(const char *name, int value, int type, int defined)
 /*
  * symbols_default()
  *
- * dodaje domy¶lne symbole dla 8051.
+ * adds default symbols for 8051.
  */
 void symbol_default(void)
 {
@@ -148,7 +148,7 @@ void symbol_default(void)
 /*
  * macro_find()
  *
- * szuka definicji makra o podanej nazwie.
+ * looks for macro definition with given name.
  */
 struct macro *macro_find(const char *name)
 {
@@ -164,7 +164,7 @@ struct macro *macro_find(const char *name)
 /*
  * macro_new()
  *
- * dodaje nowe makro do listy.
+ * adds a new macro to the list.
  */
 struct macro *macro_new(const char *name, const char *value)
 {
@@ -190,7 +190,7 @@ struct macro *macro_new(const char *name, const char *value)
 /*
  * macro_free()
  *
- * zwalnia informacje o makrach.
+ * frees macro information.
  */
 void macro_free(void)
 {

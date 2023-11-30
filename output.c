@@ -38,7 +38,7 @@ int pass;
 /*
  * emit_init()
  *
- * inicjalizacja bufora wyj¶ciowego.
+ * initializes output buffer.
  */
 void emit_init(void)
 {
@@ -51,7 +51,7 @@ void emit_init(void)
 /*
  * emit_pc_inc()
  *
- * zwiêksza wska¼nik programu o podan± ilo¶æ bajtów.
+ * increases program counter by given number of bytes.
  */
 void emit_pc_inc(int count)
 {
@@ -62,7 +62,7 @@ void emit_pc_inc(int count)
 /*
  * emit_pc_set()
  *
- * ustawia wska¼nik programu na podan± warto¶æ.
+ * sets program counter to given value.
  */
 void emit_pc_set(int offset)
 {
@@ -72,7 +72,7 @@ void emit_pc_set(int offset)
 /*
  * emit_byte()
  *
- * dopisuje do bufora wyj¶ciowego jeden bajt.
+ * appends one byte to the output buffer.
  */
 void emit_byte(unsigned char b)
 {
@@ -100,7 +100,7 @@ void emit_byte(unsigned char b)
 /*
  * emit_word()
  *
- * dopisuje do bufora wyj¶ciowego jedno s³owo.
+ * appends one word to the output buffer.
  */
 void emit_word(unsigned short w)
 {
@@ -111,7 +111,7 @@ void emit_word(unsigned short w)
 /*
  * emit_dword()
  *
- * dopisuje do bufora wyj¶ciowego jedno podwójne s³owo.
+ * appends one double word to the output buffer.
  */
 void emit_dword(unsigned long d)
 {
@@ -122,7 +122,7 @@ void emit_dword(unsigned long d)
 /*
  * emit_string()
  *
- * dopisuje do bufora wyj¶ciowego ci±g bajtów zakoñczony bajtem 0.
+ * appends null-terminated string to the output buffer.
  */
 void emit_string(const char *s)
 {
@@ -133,7 +133,7 @@ void emit_string(const char *s)
 /*
  * emit_bit()
  *
- * zapisuje bufor wyj¶ciowy w formacie binarnym.
+ * saves the output buffer in binary format.
  */
 void emit_bin(const char *filename)
 {
@@ -165,7 +165,7 @@ void emit_bin(const char *filename)
 /*
  * emit_hex()
  *
- * zapisuje bufor wyj¶ciowy w formacie Intel HEX.
+ * saves the output buffer in Intel HEX format.
  */
 void emit_hex(const char *filename)
 {

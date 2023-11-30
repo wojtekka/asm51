@@ -35,7 +35,7 @@ void *xmalloc(size_t size)
 	if (!tmp)
 		out_of_memory("malloc", size);
 
-	/* na wszelki wypadek wyczy¶æ bufor */
+	/* clear the buffer just in case */
 	memset(tmp, 0, size);
 	
 	return tmp;
