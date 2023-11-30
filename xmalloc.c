@@ -24,7 +24,7 @@
 
 static void out_of_memory(const char *func, size_t size)
 {
-	fprintf(stderr, "%s(%d): %s\n", func, size, _("out of memory"));
+	fprintf(stderr, "%s(%u): %s\n", func, (unsigned int) size, _("out of memory"));
 	exit(1);
 }
 
