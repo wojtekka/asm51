@@ -5,8 +5,8 @@
 .TH ASM51 1 "Nov 30, 2023"
 
 .SH NAZWA
-asm51 \- asembler dla mikrokontrolerów rodziny 8051
-.SH SK£ADNIA
+asm51 \- asembler dla mikrokontrolerÃ³w rodziny 8051
+.SH SKÅADNIA
 .B asm51
 [
 .B \-vnVh
@@ -15,116 +15,116 @@ asm51 \- asembler dla mikrokontrolerów rodziny 8051
 .IR format
 ] [
 .BI \-o
-.IR plik\_wyj¶ciowy
+.IR plik\_wyjÅ›ciowy
 ]
-.IR plik\_wej¶ciowy
+.IR plik\_wejÅ›ciowy
 .SH OPIS
 .I asm51
-jest dwuprzebiegowym asemblerem dla mikrokontrolerów rodziny 8051. Do jego
-cech nale¿±:
+jest dwuprzebiegowym asemblerem dla mikrokontrolerÃ³w rodziny 8051. Do jego
+cech naleÅ¼Ä…:
 .nf
-- kompatybilno¶æ z wiêkszo¶ci± DOS-owych asemblerów,
-- obs³uga dyrektyw takich jak EQU, ORG, DB, END, itd.
-- sk³adnia Intela,
-- pliki wyj¶ciowe w formacie binarnym lub Intel HEX.
+- kompatybilnoÅ›Ä‡ z wiÄ™kszoÅ›ciÄ… DOS-owych asemblerÃ³w,
+- obsÅ‚uga dyrektyw takich jak EQU, ORG, DB, END, itd.
+- skÅ‚adnia Intela,
+- pliki wyjÅ›ciowe w formacie binarnym lub Intel HEX.
 .fi
 .SH DYREKTYWY
 .TP
-.B etykieta EQU warto¶æ
-Definiuje sta³±
+.B etykieta EQU wartoÅ›Ä‡
+Definiuje staÅ‚Ä…
 .TP
-.B etykieta DATA warto¶æ
-Definiuje adres bajtu w wewnêtrznej pamiêci danych
+.B etykieta DATA wartoÅ›Ä‡
+Definiuje adres bajtu w wewnÄ™trznej pamiÄ™ci danych
 .TP
-.B etykieta BIT warto¶æ
-Definiuje adres bitu w wewnêtrznej pamiêci danych
+.B etykieta BIT wartoÅ›Ä‡
+Definiuje adres bitu w wewnÄ™trznej pamiÄ™ci danych
 .TP
 .B ORG offset
 Zmienia offset kolejnej instrukcji lub danych
 .TP
 .B DB bajty, teksty
-Wstawia do pamiêci programu bajty lub teksty
+Wstawia do pamiÄ™ci programu bajty lub teksty
 .TP
-.B DW s³owa
-Wstawia do pamiêci programu s³owa
+.B DW sÅ‚owa
+Wstawia do pamiÄ™ci programu sÅ‚owa
 .TP
 .B DD dwords
-Wstawia do pamiêci programu podwójne s³owa
+Wstawia do pamiÄ™ci programu podwÃ³jne sÅ‚owa
 .TP
 .B $MODxx
-Do³±cz plik
+DoÅ‚Ä…cz plik
 .I MODxx
 gdzie xx oznacza model mikroprocesora
 .TP
 .B $INCLUDE nazwa\_pliku
-Do³±cz dowolny plik
+DoÅ‚Ä…cz dowolny plik
 .TP
 .B END
 Koniec programu
-.SH WYRA¯ENIA
-Wyra¿enia mog± zawieraæ nastêpuj±ce dzia³ania
+.SH WYRAÅ»ENIA
+WyraÅ¼enia mogÄ… zawieraÄ‡ nastÄ™pujÄ…ce dziaÅ‚ania
 .B + - / * & | << >>
-i mog± byæ grupowane za pomoc± nawiasów. Mog± zawieraæ etykiety i sta³e,
+i mogÄ… byÄ‡ grupowane za pomocÄ… nawiasÃ³w. MogÄ… zawieraÄ‡ etykiety i staÅ‚e,
 poza dyrektywami typu 
 .I ORG
-gdzie warto¶ci musz± byæ znane w pierwszym przebiegu. Szesnastkowe i dwójkowe
-warto¶ci wymagaj± przyrostków
+gdzie wartoÅ›ci muszÄ… byÄ‡ znane w pierwszym przebiegu. Szesnastkowe i dwÃ³jkowe
+wartoÅ›ci wymagajÄ… przyrostkÃ³w
 .B h
 i
 .B b
-odpowiednio. Dodatkowo, wyra¿enia mog± zawieraæ nastêpuj±ce funkcje:
+odpowiednio. Dodatkowo, wyraÅ¼enia mogÄ… zawieraÄ‡ nastÄ™pujÄ…ce funkcje:
 .TP
 .B $
 Offset aktualnej instrukcji
 .TP
-.B HIGH(warto¶æ)
-Bardziej znacz±cy bajt s³owa
+.B HIGH(wartoÅ›Ä‡)
+Bardziej znaczÄ…cy bajt sÅ‚owa
 .TP
-.B LOW(warto¶æ)
-Mniej znacz±cy bajt s³owa
+.B LOW(wartoÅ›Ä‡)
+Mniej znaczÄ…cy bajt sÅ‚owa
 .SH OPCJE
 .TP
 .B \-n
-Nie definiuj domy¶lnych symboli 8051
+Nie definiuj domyÅ›lnych symboli 8051
 .TP
 .B \-v
-Zwiêksz gadatliwo¶æ
+ZwiÄ™ksz gadatliwoÅ›Ä‡
 .TP
 .B \-h
-Wy¶wietl informacje o pomocy
+WyÅ›wietl informacje o pomocy
 .TP
 .B \-V
-Wy¶wietl wersjê
+WyÅ›wietl wersjÄ™
 .TP
-.B \-o "\ " plik\_wyj¶ciowy
-Podaje nazwê pliku wyj¶ciowego. Domy¶lnie, je¶li
+.B \-o "\ " plik\_wyjÅ›ciowy
+Podaje nazwÄ™ pliku wyjÅ›ciowego. DomyÅ›lnie, jeÅ›li
 .B asm51
 znajdzie rozszerzenie
 .B .asm
-w nazwie pliku wej¶ciowego, zamienia je na rozszerzenie formatu wyj¶ciowego.
-W innym wypadku dodaje je na koñcu nazwy pliku wej¶ciowego.
+w nazwie pliku wejÅ›ciowego, zamienia je na rozszerzenie formatu wyjÅ›ciowego.
+W innym wypadku dodaje je na koÅ„cu nazwy pliku wejÅ›ciowego.
 .TP
-.B \-f "\ " format\_wyj¶ciowy
-Wybiera format pliku wyj¶ciowego. Aktualnie obs³ugiwane s± formaty
+.B \-f "\ " format\_wyjÅ›ciowy
+Wybiera format pliku wyjÅ›ciowego. Aktualnie obsÅ‚ugiwane sÄ… formaty
 .B bin
 i
 .B hex
-(domy¶lnie wybierany jest
+(domyÅ›lnie wybierany jest
 .B hex
 ).
-.SH KODY B£ÊDÓW
+.SH KODY BÅÄ˜DÃ“W
 .TP
 .B 1
-Nieprawid³owe parametry
+NieprawidÅ‚owe parametry
 .TP
 .B 2
-B³±d otwierania pliku wej¶ciowego
+BÅ‚Ä…d otwierania pliku wejÅ›ciowego
 .TP
 .B 3
-B³±d kompilacji
-.SH ZNANE B£ÊDY
+BÅ‚Ä…d kompilacji
+.SH ZNANE BÅÄ˜DY
 .BR bison (1)
-wy¶wietla wiele b³êdów w parserze, ale dzia³a bez problemów.
+wyÅ›wietla wiele bÅ‚Ä™dÃ³w w parserze, ale dziaÅ‚a bez problemÃ³w.
 .SH AUTOR
 Wojtek Kaniewski (wojtekka@toxygen.net)
 
