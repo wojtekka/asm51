@@ -21,10 +21,16 @@
 #include <string.h>
 #include <stdarg.h>
 #include <unistd.h>
+#include <limits.h>
+#include <fcntl.h>
 #include "main.h"
 #include "xmalloc.h"
 #include "output.h"
 #include "symbols.h"
+
+#ifndef O_PATH
+#define O_PATH 010000000
+#endif
 
 int errors = 0, warnings = 0;
 int verbosity;
@@ -79,6 +85,7 @@ _("usage: %s [options] <inputfile>\n"
 "  -o <outputfile>  select different output file (default: inputfile.hex)\n"
 "  -f <bin|hex>     select output file format (default: hex)\n"
 "  -n               don't include default 8051 symbols\n"
+"  -a               use absolute path when printing file name\n"
 "  -v               increase verbosity\n"
 "  -V               print version\n"
 "  -h               print this help message\n"
@@ -88,9 +95,9 @@ _("usage: %s [options] <inputfile>\n"
 int main(int argc, char **argv)
 {
 	char *output = NULL;
-	int format = 1, ch, no_symbol_default = 0;
+	int format = 1, ch, no_symbol_default = 0, use_absolute_path = 0;
 
-	while ((ch = getopt(argc, argv, "o:f:nhvV")) != -1) {
+	while ((ch = getopt(argc, argv, "o:f:nahvV")) != -1) {
 		switch (ch) {
 			case 'o':
 				if (output) {
@@ -118,6 +125,10 @@ int main(int argc, char **argv)
 			case 'n':
 				no_symbol_default = 1;
 				break;
+		 
+			case 'a':
+				use_absolute_path = 1;
+				break;
 			
 			case 'v':
 				verbosity++;
@@ -143,7 +154,27 @@ int main(int argc, char **argv)
 	}
 	
 	filename = xstrdup(argv[optind]);
-	
+
+	// Get absolute file name instead.
+	char absolute_path[PATH_MAX] = {0};
+	if(use_absolute_path)
+	{
+		int file = open(filename, O_PATH);
+		if (file != -1)
+		{
+		 char process_path[PATH_MAX] = {0};
+			int len = snprintf(process_path, sizeof(process_path), "/proc/self/fd/%d", file);
+			process_path[len] = 0;
+
+			ssize_t size = readlink(process_path, absolute_path, sizeof(absolute_path));
+			if(size != -1)
+			{
+				absolute_path[size] = '\0';
+				filename = absolute_path;
+			}
+		}
+	}
+
 	if (!(yyin = fopen(filename, "r"))) {
 		fprintf(stderr, "%s: %s\n", argv[1], strerror(errno));
 		exit(2);
