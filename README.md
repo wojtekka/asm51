@@ -13,11 +13,12 @@ It was written as a student project.
 Tested with
 -----------
 
-* GNU Make 4.4, gcc 13.1.1, GNU Bison 3.8.2, flex 2.6.4
+* GNU Make 4.4.1, gcc 15.2.1, GNU Bison 3.8.2, flex 2.6.4
 
 Changes
 -------
 
+* 0.8 (2026-xx-xx) - added -a parameter to display absolute path (lucaraymaekers)
 * 0.7 (2023-11-30) - fixed compilation with recent toolchain
 * 0.6 (2006-10-10) - fixed compilation with flex 2.5.33 (Adrian Czerniak)
 * 0.5 (2004-06-16) - fixed DB with strings
@@ -29,7 +30,7 @@ Changes
 License
 -------
 
-(C) Copyright 2003-2023 Wojtek Kaniewski <wojtekka@toxygen.net>
+(C) Copyright 2003-2026 Wojtek Kaniewski <wojtekka@toxygen.net>
 
 Released under the terms of GNU GPL version 2 license
 

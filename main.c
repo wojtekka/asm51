@@ -22,7 +22,6 @@
 #include <stdarg.h>
 #include <unistd.h>
 #include <limits.h>
-#include <fcntl.h>
 #include "main.h"
 #include "xmalloc.h"
 #include "output.h"
@@ -155,29 +154,18 @@ int main(int argc, char **argv)
 	
 	filename = xstrdup(argv[optind]);
 
-	// Get absolute file name instead.
-	char absolute_path[PATH_MAX] = {0};
-	if(use_absolute_path)
-	{
-		int file = open(filename, O_PATH);
-		if (file != -1)
-		{
-		 char process_path[PATH_MAX] = {0};
-			int len = snprintf(process_path, sizeof(process_path), "/proc/self/fd/%d", file);
-			process_path[len] = 0;
-
-			ssize_t size = readlink(process_path, absolute_path, sizeof(absolute_path));
-			if(size != -1)
-			{
-				absolute_path[size] = '\0';
-				filename = absolute_path;
-			}
-		}
-	}
-
 	if (!(yyin = fopen(filename, "r"))) {
 		fprintf(stderr, "%s: %s\n", argv[1], strerror(errno));
 		exit(2);
+	}
+
+	// Get absolute file name instead.
+	char absolute_path[PATH_MAX] = {0};
+	if (use_absolute_path) {
+		if (realpath(filename, absolute_path) != NULL) {
+			free(filename);
+			filename = xstrdup(absolute_path);
+		}
 	}
 
 	if (!no_symbol_default)
