@@ -155,7 +155,7 @@ int main(int argc, char **argv)
 	filename = xstrdup(argv[optind]);
 
 	if (!(yyin = fopen(filename, "r"))) {
-		fprintf(stderr, "%s: %s\n", argv[1], strerror(errno));
+		fprintf(stderr, "%s: %s\n", filename, strerror(errno));
 		exit(2);
 	}
 
@@ -227,6 +227,7 @@ int main(int argc, char **argv)
 		emit_bin(output);
 
 	xfree(output);
+	xfree(filename);
 
 	return 0;
 }
